@@ -22,11 +22,11 @@ def get_dates(days):
 
 def get_questions(link, tag, days):
     params = {'site' : 'stackoverflow', 'tagged': TAG, 'fromdate' : get_dates(DAYS)['fromdate'], 'todate' : get_dates(DAYS)['todate']}
-    response = requests.get(url = link, params=params)
+    response = requests.get(url = link, params=params,)
     return response.json()['items']
 
 if __name__ == '__main__':
     questions = get_questions(LINK, TAG, DAYS)
-    print(f'Questions for last {DAYS} day(s):')
+    print(f'\nQuestions for last {DAYS} day(s): \n')
     for question in questions:
         print(question['title'])
